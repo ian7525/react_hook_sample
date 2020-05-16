@@ -10,16 +10,22 @@ function App() {
   });
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
-  const [showHello, setShowHello] = useState(true);
+  // const [showHello, setShowHello] = useState(true);
 
   useEffect(() => {
-    console.log("render");
-  }, [values.password]);
+    const onMouseMove = (e) => {
+      console.log(e);
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, [values.email]);
 
   return (
     <div>
-      <button onClick={() => setShowHello(!showHello)}>toggle</button>
-      {showHello && <Hello />}
+      {/*<button onClick={() => setShowHello(!showHello)}>toggle</button>*/}
+      {/*{showHello && <Hello />}*/}
       <input name="email" value={values.email} onChange={handleChange} />
       <input
         name="firstName"
@@ -27,7 +33,6 @@ function App() {
         value={values.firstName}
         onChange={handleChange}
       />
-
       <input
         type="password"
         name="password"
