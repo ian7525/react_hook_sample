@@ -5,7 +5,7 @@ export const useFetch = (url) => {
 
   useEffect(() => {
     async function fetchData() {
-      setState({ data: null, loading: true });
+      setState((state) => ({ data: state.data, loading: true }));
       let result = await fetch(url);
       result = await result.text();
       console.log(result);
@@ -16,7 +16,7 @@ export const useFetch = (url) => {
     //     fetch(url)
     //       .then((x) => x.text())
     //       .then((y) => console.log(y));
-  }, [url]);
+  }, [url, setState]);
 
   return state;
 };
