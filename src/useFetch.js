@@ -9,7 +9,9 @@ export const useFetch = (url) => {
       let result = await fetch(url);
       result = await result.text();
       console.log(result);
-      setState({ data: result, loading: false });
+      setTimeout(() => {
+        setState({ data: result, loading: false });
+      }, 2000);
     }
     fetchData();
     //   useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "./useForm";
 import { Hello } from "./Hello";
-import { useFetch } from "./useFetch";
+// import { useFetch } from "./useFetch";
 
 function App() {
   const [values, handleChange] = useForm({
@@ -10,16 +10,7 @@ function App() {
     firstName: "",
   });
 
-  const init = JSON.parse(localStorage.getItem("count"));
-  const [count, setCount] = useState(() =>
-    init ? JSON.parse(localStorage.getItem("count")) : 0
-  );
-  const { data } = useFetch(`http://numbersapi.com/${count}/trivia`);
   const inputRef = useRef();
-
-  useEffect(() => {
-    localStorage.setItem("count", JSON.stringify(count));
-  }, [count]);
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -45,9 +36,6 @@ function App() {
 
   return (
     <div>
-      <div>{!data ? "...loading" : data}</div>
-      <div>Count: {count}</div>
-      <button onClick={() => setCount((c) => c + 1)}>Increment</button>
       <button onClick={() => setShowHello(!showHello)}>toggle</button>
       {showHello && <Hello />}
       <input
