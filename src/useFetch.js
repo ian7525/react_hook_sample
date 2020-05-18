@@ -1,7 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export const useFetch = (url) => {
+  const isCurrent = useRef(true);
   const [state, setState] = useState({ data: "", loading: true });
+
+  useEffect(() => {
+    return () => {
+      // called when the component is going to unmount
+      isCurrent.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -10,7 +18,9 @@ export const useFetch = (url) => {
       result = await result.text();
       console.log(result);
       setTimeout(() => {
-        setState({ data: result, loading: false });
+        if (isCurrent.current) {
+          setState({ data: result, loading: false });
+        }
       }, 2000);
     }
     fetchData();

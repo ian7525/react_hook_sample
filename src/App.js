@@ -11,6 +11,7 @@ function App() {
   });
 
   const inputRef = useRef();
+  const hello = useRef(() => console.log("hello"));
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -59,6 +60,7 @@ function App() {
       <button
         onClick={() => {
           inputRef.current.focus();
+          hello.current();
         }}
       >
         focus
