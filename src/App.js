@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "./useForm";
 import { Hello } from "./Hello";
+import { useMeasure } from "./useMeasure";
 // import { useFetch } from "./useFetch";
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
 
   const inputRef = useRef();
   const hello = useRef(() => console.log("hello"));
+
+  const [rect, inputRef2] = useMeasure();
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -46,6 +49,7 @@ function App() {
         onChange={handleChange}
       />
       <input
+        ref={inputRef2}
         name="firstName"
         placeholder="firstName"
         value={values.firstName}

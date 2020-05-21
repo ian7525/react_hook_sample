@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { useFetch } from "./useFetch";
+import { useMeasure } from "./useMeasure";
 
 export const Hello = () => {
   // useEffect(() => {
@@ -20,12 +21,13 @@ export const Hello = () => {
     localStorage.setItem("count", JSON.stringify(count));
   }, [count]);
 
-  const [rect, setRect] = useState({});
-  const divRef = useRef();
+  // const [rect, setRect] = useState({});
+  // const divRef = useRef();
 
-  useLayoutEffect(() => {
-    setRect(divRef.current.getBoundingClientRect());
-  }, [data]);
+  // useLayoutEffect(() => {
+  //   setRect(divRef.current.getBoundingClientRect());
+  // }, [data]);
+  const [rect, divRef] = useMeasure(data);
 
   return (
     <div>
