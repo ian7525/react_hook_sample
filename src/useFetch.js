@@ -17,11 +17,11 @@ export const useFetch = (url) => {
       let result = await fetch(url);
       result = await result.text();
       console.log(result);
-      setTimeout(() => {
-        if (isCurrent.current) {
-          setState({ data: result, loading: false });
-        }
-      }, 2000);
+      // setTimeout(() => {
+      if (isCurrent.current) {
+        setState({ data: result, loading: false });
+      }
+      // }, 2000);
     }
     fetchData();
     //   useEffect(() => {
