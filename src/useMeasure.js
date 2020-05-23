@@ -1,6 +1,6 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import {useState, useRef, useLayoutEffect} from "react";
 
-export const useMeasure = (deps) => {
+export const useMeasure = deps => {
   const [rect, setRect] = useState({});
   const myRef = useRef();
 

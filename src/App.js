@@ -1,7 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useForm } from "./useForm";
-import { Hello } from "./Hello";
-import { useMeasure } from "./useMeasure";
+import React, {useEffect, useRef, useState} from "react";
+
+import {Hello} from "./Hello";
+import {useForm} from "./useForm";
+import {useMeasure} from "./useMeasure";
+import {Reducer} from "./useReducer";
+
 // import { useFetch } from "./useFetch";
 
 function App() {
@@ -69,6 +72,9 @@ function App() {
       >
         focus
       </button>
+      <div>
+        <Reducer />
+      </div>
     </div>
   );
 }
