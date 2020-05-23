@@ -4,6 +4,7 @@ import {Hello} from "./Hello";
 import {useForm} from "./useForm";
 import {useMeasure} from "./useMeasure";
 import {Reducer} from "./useReducer";
+import {ToDo} from "./useToDo";
 
 // import { useFetch } from "./useFetch";
 
@@ -74,6 +75,9 @@ function App() {
       </button>
       <div>
         <Reducer />
+      </div>
+      <div>
+        <ToDo />
       </div>
     </div>
   );
